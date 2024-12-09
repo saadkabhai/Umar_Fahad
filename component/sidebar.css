@@ -22,9 +22,9 @@
 .sidebarcomponent .toggle {
     outline: none;
     height: 30px;
-    width: 30px;
+    max-width: 30px;
+    width: 10vw;
     position: absolute;
-    right: -40px;
     top: 10px;
     display: none;
     flex-direction: column;
@@ -137,8 +137,8 @@
     }
 
     .sidebarcomponent.active {
-        width: 100vw;
-        min-width: 300px;
+        width: calc(90vw - 10px);
+        max-width: 300px;
     }
 
     .sidebarcomponent .toggle {
