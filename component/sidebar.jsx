@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { useEffect } from 'react'
 import './sidebar.css'
 
 export default function Sidebarcomponent() {
@@ -20,6 +20,19 @@ export default function Sidebarcomponent() {
             section.scrollIntoView({ behavior: "smooth", block: "start" });
         }
     }
+    const set_position_of_toggle = () => {
+        const toggle = document.querySelector('.toggle');
+        const computedvalue = window.getComputedStyle(toggle);
+
+        const width = parseFloat(computedvalue.width) + 10;
+
+        toggle.style.right = `-${width}px`;
+
+        console.log(`Computed width: ${computedvalue.width}, Right value: -${width}px`);
+    };
+    useEffect(() => {
+        set_position_of_toggle()
+    }, [])
     return (
         <div className='sidebarcomponent'>
             <div className="container">
