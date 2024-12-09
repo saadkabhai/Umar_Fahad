@@ -1,0 +1,147 @@
+.sidebarcomponent {
+    min-height: 100vh;
+    max-height: 100vh;
+    height: 100vh;
+    background-color: var(--foreground);
+    min-width: 300px;
+    max-width: 300px;
+    width: 100vw;
+    color: var(--background);
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    transition: 0.2s ease-in-out;
+    z-index: 2;
+}
+
+.sidebarcomponent .container{
+    overflow: auto;
+}
+
+.sidebarcomponent .toggle {
+    outline: none;
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    right: -40px;
+    top: 10px;
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    display: none;
+}
+
+
+.sidebarcomponent .toggle .bar {
+    height: 5px;
+    border-radius: 20px;
+    width: 100%;
+    background-color: var(--foreground);
+    position: absolute;
+    transition: 0.5s ease-in-out;
+}
+
+.sidebarcomponent .toggle .bar-one {
+    top: 0px;
+}
+
+.sidebarcomponent .toggle .bar-two {
+    top: 10px;
+}
+
+.sidebarcomponent .toggle .bar-three {
+    top: 20px;
+}
+
+.sidebarcomponent .toggle.active .bar-one {
+    transform: rotate(-45deg);
+    top: 20px;
+}
+
+.sidebarcomponent .toggle.active .bar-two {
+    opacity: 0;
+}
+
+.sidebarcomponent .toggle.active .bar-three {
+    top: 20px;
+    transform: rotate(45deg);
+}
+
+.sidebarcomponent ::selection {
+    background-color: var(--background);
+    color: var(--foreground);
+}
+
+.sidebarcomponent .pfp-container {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+.sidebarcomponent .pfp-container .pfp {
+    border-radius: 150px;
+    height: 150px;
+    width: 150px;
+    background-color: var(--background);
+}
+
+.sidebarcomponent .name {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.sidebarcomponent .list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    gap: 10px;
+    margin-top: 10px;
+    user-select: none;
+    overflow: auto;
+}
+
+.sidebarcomponent .list li {
+    transition: .2s ease-in-out;
+}
+.sidebarcomponent .list li p{ 
+    cursor: pointer;
+}
+.sidebarcomponent .list li .line {
+    width: 0%;
+    height: 2px;
+    transition: .2s ease-in-out;
+}
+
+.sidebarcomponent .list li.active {
+    color: var(--secondary);
+}
+
+.sidebarcomponent .list li.active .line {
+    width: 100%;
+    height: 2px;
+    border: 3px;
+    background-color: var(--secondary);
+}
+
+@media (max-width:800px) {
+    .sidebarcomponent {
+        min-width: 0px;
+        width: 0px;
+    }
+
+    .sidebarcomponent.active {
+        width: 100vw;
+        min-width: 300px;
+    }
+
+    .sidebarcomponent .toggle {
+        display: flex;
+    }
+}
