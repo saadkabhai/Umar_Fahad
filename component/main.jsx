@@ -1,6 +1,6 @@
 'use client'
-import React, { useEffect, useRef, useState } from 'react'
-import './main.css'
+import React, { useEffect, useState } from 'react'
+import '../styles/main.css'
 import SplitTextJS from 'split-text-js';
 import gsap from 'gsap';
 
@@ -71,11 +71,9 @@ export default function Main() {
         const viewportHeight = window.innerHeight;
 
         if (rect.height <= viewportHeight) {
-            // Smaller element: at least 50% visible
             const visibleHeight = Math.min(rect.bottom, viewportHeight) - Math.max(rect.top, 0);
             return visibleHeight >= rect.height / 2;
         } else {
-            // Larger element: at least 50% visible
             const visibleHeight = Math.min(rect.bottom, viewportHeight) - Math.max(rect.top, 0);
             return visibleHeight >= rect.height / 2;
         }
@@ -119,15 +117,8 @@ export default function Main() {
             timeout = setTimeout(() => {
                 handleScrollAnimations0();
                 timeout = null;
-            }, 100); // Adjust delay for smoothness
+            }, 100);
         }
-    }
-    const landing_page_reveal = () => {
-        const landingpageh1s = document.querySelectorAll('.landing-page-h1')
-        landingpageh1s.forEach((item) => {
-            item.style.margin = '0px'
-            item.style.opacity = 1
-        })
     }
     const titles = gsap.utils.toArray('.skill-role')
     const rotateskills = () => {
@@ -136,12 +127,13 @@ export default function Main() {
         })
         titles.forEach(title => {
             const splitTitle = new SplitTextJS(title)
-            tl.from(splitTitle.chars, {
-                opacity: 0,
-                y: 20,
-                rotateX: 90,
-                stagger: .02
-            }, '<')
+            tl
+                .from(splitTitle.chars, {
+                    opacity: 0,
+                    y: 20,
+                    rotateX: 90,
+                    stagger: .02
+                }, '<')
                 .to(splitTitle.chars, {
                     opacity: 0,
                     y: -20,
@@ -155,13 +147,12 @@ export default function Main() {
     })
     useEffect(() => {
         getheight()
-        landing_page_reveal()
     }, [])
 
     return (
         <div onScroll={handlescroll} onClick={closesidebar} className='all-container'>
-            <div style={{ marginBottom: 100 }} className="landing-section">
-                <div style={{ opacity: 0, transition: 'opacity 0.5s ease-in-out, margin 0.5s ease-in-out', marginTop: '-30px' }} className="description landing-page-h1">
+            <div className="landing-section">
+                <div className="description landing-page-h1">
                     <h1>Hi!</h1>
                     <h1>I am Umar</h1>
                     <h1>Fahad</h1>

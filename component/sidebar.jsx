@@ -1,6 +1,6 @@
 'use client'
 import React, { useEffect } from 'react'
-import './sidebar.css'
+import '../styles/sidebar.css'
 
 export default function Sidebarcomponent() {
     const onclicktogglebutton = (e) => {

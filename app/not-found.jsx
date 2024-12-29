@@ -1,5 +1,5 @@
 import React from 'react'
-import './not-found.css'
+import '../styles/not-found.css'
 import Link from 'next/link'
 
 export default function notfound() {
