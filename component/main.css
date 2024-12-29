@@ -8,7 +8,7 @@
     height: 100vh;
 }
 
-.all-container .firstp{
+.all-container .firstp {
     color: var(--foreground-secondary);
     font-size: 15px;
 }
@@ -23,65 +23,16 @@
 }
 
 .all-container .landing-section .description .skills {
-    width: 50px;
-    height: 50px;
-    position: relative;
-    transform-style: preserve-3d;
-    transform: rotateX(0deg) rotateY(0deg);
-    transition: 0.5s ease-in-out;
-    font-size: 40px;
+    margin-top: 10px;
 }
 
-.all-container .landing-section .description .skills .face {
-    position: absolute;
-    height: 50px;
-    width: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--secondary);
+.all-container .landing-section .description .skills .skill-role {
+    font-size: 30px;
+    height: 0;
+    color: white;
+    margin-bottom: 0px;
+    line-height: 10px;
 }
-
-.all-container .landing-section .description .skills .front {
-    transform: rotateY(0deg) translateZ(25px);
-}
-
-.all-container .landing-section .description .skills .back {
-    transform: rotateY(0deg) rotateX(180deg) translateZ(25px);
-}
-
-.all-container .landing-section .description .skills .top {
-    transform: rotateX(90deg) translateZ(25px);
-}
-
-.all-container .landing-section .description .skills .bottom {
-    transform: rotateX(-90deg) translateZ(25px);
-}
-
-@keyframes rollDice {
-
-    0% {
-        transform: rotateX(0deg) rotateY(0deg);
-    }
-
-    25% {
-        transform: rotateX(90deg) rotateY(0deg);
-    }
-
-    50% {
-        transform: rotateX(180deg) rotateY(0deg);
-    }
-
-    75% {
-        transform: rotateX(270deg) rotateY(0deg);
-    }
-
-    100% {
-        transform: rotateX(360deg) rotateY(0deg);
-
-    }
-}
-
 
 .all-container .aboutus-section h2 {
     margin-top: 20px;
@@ -109,6 +60,11 @@
     border-radius: 10px;
     position: relative;
     overflow: hidden;
+}
+
+.all-container .aboutus-section .cards .card.visible {
+    margin: 0 !important;
+    opacity: 1 !important;
 }
 
 .all-container .aboutus-section .cards .card ::selection {
@@ -463,11 +419,13 @@
     background-color: var(--foreground);
     color: var(--background);
 }
+
 .all-container .contact-section .cards .card-container .text {
     color: var(--secondary);
     font-size: 20px;
     line-height: 30px;
 }
+
 @media (max-width:800px) {
 
     .all-container .landing-section,

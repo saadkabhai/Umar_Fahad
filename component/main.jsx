@@ -1,52 +1,13 @@
 'use client'
 import React, { useEffect, useRef, useState } from 'react'
 import './main.css'
+import SplitTextJS from 'split-text-js';
+import gsap from 'gsap';
 
 export default function Main() {
     const [educationcontentheights, seteducationcontentheights] = useState([])
-    const [second_animation_element_number, setsecond_animation_element_number] = useState(0)
-    const scrollRef = useRef(null);
-    const rotateskilldice = () => {
-        const dice = document.querySelector('.skills')
-        const front = document.querySelector('.front')
-        const back = document.querySelector('.back')
-        const top = document.querySelector('.top')
-        const bottom = document.querySelector('.bottom')
-        front.innerHTML = 'a'
-        top.innerHTML = ''
-        back.innerHTML = ''
-        dice.style.transition = "0s ease-in-out";
-        setTimeout(() => {
-            dice.style.transform = "rotateX(0deg) rotateY(0deg)";
-        }, 500);
-        setTimeout(() => {
-            bottom.innerHTML = 'b'
-        }, 500);
-        setTimeout(() => {
-            dice.style.transition = "0.5s ease-in-out";
-            dice.style.transform = "rotateX(90deg) rotateY(0deg)";
-        }, 2500);
-        setTimeout(() => {
-            front.innerHTML = ''
-            back.innerHTML = 'c'
-            dice.style.transform = "rotateX(180deg) rotateY(0deg)";
-        }, 5000);
-        setTimeout(() => {
-            bottom.innerHTML = ''
-            top.innerHTML = 'd'
-            dice.style.transform = "rotateX(270deg) rotateY(0deg)";
-        }, 7500);
-        setTimeout(() => {
-            back.innerHTML = ''
-            front.innerHTML = 'e'
-            dice.style.transform = "rotateX(360deg) rotateY(0deg)";
-        }, 10000);
-        setTimeout(() => {
-            top.innerHTML = ''
-            bottom.innerHTML = 'a'
-            dice.style.transform = "rotateX(450deg) rotateY(0deg)";
-        }, 12500);
-    }
+    const animatedElements = new Set();
+    let timeout
     const getheight = () => {
         const ecards = document.querySelectorAll('.ecard')
         const education_section = document.querySelector('.education-section')
@@ -95,7 +56,6 @@ export default function Main() {
         } else {
             console.log('no container found');
         }
-        console.log(educationcontentheights);
 
     }
     const closesidebar = () => {
@@ -105,6 +65,35 @@ export default function Main() {
             toggle_button.classList.remove('active')
             sidebarcomponent.classList.remove('active')
         }
+    }
+    const isInViewport = (element) => {
+        const rect = element.getBoundingClientRect();
+        const viewportHeight = window.innerHeight;
+
+        if (rect.height <= viewportHeight) {
+            // Smaller element: at least 50% visible
+            const visibleHeight = Math.min(rect.bottom, viewportHeight) - Math.max(rect.top, 0);
+            return visibleHeight >= rect.height / 2;
+        } else {
+            // Larger element: at least 50% visible
+            const visibleHeight = Math.min(rect.bottom, viewportHeight) - Math.max(rect.top, 0);
+            return visibleHeight >= rect.height / 2;
+        }
+    };
+    const handleScrollAnimations0 = () => {
+        const elements = document.querySelectorAll('.second-animation-element');
+        let delay = 0;
+
+        elements.forEach((element, index) => {
+            if (isInViewport(element) && !animatedElements.has(element)) {
+                console.log(`Animating element ${index + 1} with delay ${delay}ms`);
+                animatedElements.add(element);
+                setTimeout(() => {
+                    element.classList.add('visible');
+                }, delay);
+                delay += 200;
+            }
+        });
     }
     const handlescroll = () => {
         const toggle_button = document.querySelector('.toggle')
@@ -126,38 +115,12 @@ export default function Main() {
         first_animation_element.forEach((item) => {
             observer0.observe(item)
         })
-        const second_animation_element = document.querySelectorAll('.second-animation-element')
-        const observer1 = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    let id = entry.target.id
-                    id = parseInt(id, 10)
-                    const computedvalue = window.getComputedStyle(entry.target)
-                    let transition = computedvalue.transition
-                    const firstDurationMatch = transition.split(',')[0].trim().match(/([\d.]+)(s|ms)/);
-                    let durationInMs
-                    if (firstDurationMatch) {
-                        // Extract duration value and convert to milliseconds
-                        durationInMs = firstDurationMatch[2] === 's'
-                            ? parseFloat(firstDurationMatch[1]) * 1000
-                            : parseFloat(firstDurationMatch[1]);
-                    }
-                    entry.target.style.margin = '0px'
-                    entry.target.style.opacity = 1
-                    setTimeout(() => {
-                        const next_element = document.getElementById(id + 1)
-                        if (next_element) {
-                            next_element.style.transition = 'opacity 0.5s ease-in-out, margin 0.5s ease-in-out'
-
-                        }
-
-                    }, durationInMs);
-                }
-            });
-        }, { threshold: 0.2 });
-        second_animation_element.forEach((item) => {
-            observer1.observe(item)
-        })
+        if (!timeout) {
+            timeout = setTimeout(() => {
+                handleScrollAnimations0();
+                timeout = null;
+            }, 100); // Adjust delay for smoothness
+        }
     }
     const landing_page_reveal = () => {
         const landingpageh1s = document.querySelectorAll('.landing-page-h1')
@@ -166,17 +129,35 @@ export default function Main() {
             item.style.opacity = 1
         })
     }
+    const titles = gsap.utils.toArray('.skill-role')
+    const rotateskills = () => {
+        const tl = gsap.timeline({
+            onComplete: rotateskills
+        })
+        titles.forEach(title => {
+            const splitTitle = new SplitTextJS(title)
+            tl.from(splitTitle.chars, {
+                opacity: 0,
+                y: 20,
+                rotateX: 90,
+                stagger: .02
+            }, '<')
+                .to(splitTitle.chars, {
+                    opacity: 0,
+                    y: -20,
+                    rotateX: -90,
+                    stagger: .02
+                }, '<1')
+        })
+    }
     useEffect(() => {
-        rotateskilldice()
-        setInterval(() => {
-            rotateskilldice()
-        }, 15000);
+        rotateskills()
     })
     useEffect(() => {
         getheight()
         landing_page_reveal()
-
     }, [])
+
     return (
         <div onScroll={handlescroll} onClick={closesidebar} className='all-container'>
             <div style={{ marginBottom: 100 }} className="landing-section">
@@ -185,10 +166,10 @@ export default function Main() {
                     <h1>I am Umar</h1>
                     <h1>Fahad</h1>
                     <div className="skills">
-                        <div className="face front">a</div>
-                        <div className="face back"></div>
-                        <div className="face top"></div>
-                        <div className="face bottom"></div>
+                        <p className='skill-role'>Graphic Design</p>
+                        <p className='skill-role'>Web Design</p>
+                        <p className='skill-role'>Software Engineer</p>
+                        <p className='skill-role'>Application Developer</p>
                     </div>
                 </div>
                 <div className="image"></div>
@@ -212,7 +193,7 @@ export default function Main() {
                         </div>
                         <div className="line"></div>
                     </div>
-                    <div style={{ marginLeft: '30px', opacity: 0, transition: 'opacity 0.7s ease-in-out, margin 0.7s ease-in-out' }} id='22' className="card second-animation-element">
+                    <div style={{ marginLeft: '30px', opacity: 0, transition: 'opacity 0.5s ease-in-out, margin 0.5s ease-in-out' }} id='22' className="card second-animation-element">
                         <div className="icon">
                             <i style={{ color: '#ec5453' }} className="fa-sharp fa-light fa-globe-stand fa-xl"></i>
                         </div>
@@ -221,7 +202,7 @@ export default function Main() {
                         </div>
                         <div style={{ backgroundColor: '#e76e6d' }} className="line"></div>
                     </div>
-                    <div style={{ marginTop: '-30px', opacity: 0, transition: 'opacity 1.0s ease-in-out, margin 1.0s ease-in-out' }} id='23' className="card second-animation-element">
+                    <div style={{ marginTop: '-30px', opacity: 0, transition: 'opacity 0.5s ease-in-out, margin 0.5s ease-in-out' }} id='23' className="card second-animation-element">
                         <div className="icon">
                             <i style={{ color: '#fac756' }} className="fa-light fa-database fa-xl"></i>
                         </div>
@@ -230,7 +211,7 @@ export default function Main() {
                         </div>
                         <div style={{ backgroundColor: '#c9a24b' }} className="line"></div>
                     </div>
-                    <div style={{ marginTop: '-30px', opacity: 0, transition: 'opacity 1.3s ease-in-out, margin 1.3s ease-in-out' }} id='24' className="card second-animation-element">
+                    <div style={{ marginTop: '-30px', opacity: 0, transition: 'opacity 0.5s ease-in-out, margin 0.5s ease-in-out' }} id='24' className="card second-animation-element">
                         <div className="icon">
                             <i style={{ color: '#a84cb8' }} className="fa-light fa-mobile fa-xl"></i>
                         </div>
