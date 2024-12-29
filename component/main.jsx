@@ -122,6 +122,8 @@ export default function Main() {
     }
     const titles = gsap.utils.toArray('.skill-role')
     const rotateskills = () => {
+        const skills = document.querySelector('.skills')
+        skills.style.opacity = 1 
         const tl = gsap.timeline({
             onComplete: rotateskills
         })
@@ -156,7 +158,7 @@ export default function Main() {
                     <h1>Hi!</h1>
                     <h1>I am Umar</h1>
                     <h1>Fahad</h1>
-                    <div className="skills">
+                    <div style={{ opacity: 0 }} className="skills">
                         <p className='skill-role'>Graphic Design</p>
                         <p className='skill-role'>Web Design</p>
                         <p className='skill-role'>Software Engineer</p>
