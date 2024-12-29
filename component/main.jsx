@@ -123,7 +123,9 @@ export default function Main() {
     const titles = gsap.utils.toArray('.skill-role')
     const rotateskills = () => {
         const skills = document.querySelector('.skills')
-        skills.style.opacity = 1 
+                setTimeout(() => {
+            skills.style.opacity = 1
+        }, 100);
         const tl = gsap.timeline({
             onComplete: rotateskills
         })
