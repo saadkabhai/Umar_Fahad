@@ -123,11 +123,7 @@ export default function Main() {
     const titles = gsap.utils.toArray('.skill-role')
     const rotateskills = () => {
         const skills = document.querySelector('.skills')
-<<<<<<< HEAD
         setTimeout(() => {
-=======
-                setTimeout(() => {
->>>>>>> de72c203063ffc91a18976c1f24d6a0d4adf0365
             skills.style.opacity = 1
         }, 100);
         const tl = gsap.timeline({
@@ -152,7 +148,7 @@ export default function Main() {
     }
     useEffect(() => {
         rotateskills()
-    })
+    }, [])
     useEffect(() => {
         getheight()
     }, [])
