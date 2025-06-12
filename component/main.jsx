@@ -146,12 +146,12 @@ export default function Main() {
                 }, '<1')
         })
     }
-    useEffect(() => {
-        rotateskills()
-    }, [])
-    useEffect(() => {
-        getheight()
-    }, [])
+    // useEffect(() => {
+    //     rotateskills()
+    // }, [])
+    // useEffect(() => {
+    //     getheight()
+    // }, [])
 
     return (
         <div onScroll={handlescroll} onClick={closesidebar} className='all-container'>
