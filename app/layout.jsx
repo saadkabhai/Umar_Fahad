@@ -18,6 +18,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        <meta name="google-adsense-account" content="ca-pub-4969686146359420"/>
         <link
           rel="stylesheet"
           data-purpose="Layout StyleSheet"
