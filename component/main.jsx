@@ -5,156 +5,8 @@ import SplitTextJS from 'split-text-js';
 import gsap from 'gsap';
 
 export default function Main() {
-    const [educationcontentheights, seteducationcontentheights] = useState([])
-    const animatedElements = new Set();
-    let timeout
-    const getheight = () => {
-        const ecards = document.querySelectorAll('.ecard')
-        const education_section = document.querySelector('.education-section')
-        let heights = []
-        let index = 0
-        ecards.forEach(item => {
-            const content = item.querySelector('.content')
-            content.style.padding = '10px'
-            const computedvalue = window.getComputedStyle(content)
-            const height = computedvalue.getPropertyValue('height');
-            let integerheight = height.substring(0, height.length - 2)
-            integerheight = parseInt(integerheight, 10)
-            integerheight = integerheight + 20
-            heights[index] = integerheight
-            content.style.padding = '0px'
-            content.style.height = '0px'
-            index++
-        })
-        education_section.style.opacity = 1
-        seteducationcontentheights(heights)
-    }
-    const openeducationcard = (e) => {
-        const ecards = document.querySelectorAll('.ecard')
-        ecards.forEach(item => {
-            item.classList.remove('active')
-            const content = item.querySelector('.content')
-            content.style.height = '0px'
-            content.style.padding = '0px'
-            content.style.transition = '0.2s ease-in-out';
-        })
-        const index = parseInt(e.target.id, 10)
-        const container = document.getElementById(`ecard${index}`)
-        if (container) {
-            const computedvalue = window.getComputedStyle(container)
-            const height = computedvalue.getPropertyValue('height');
-            const content = container.querySelector('.content')
-            if (height == '60px') {
-                content.style.padding = '10px'
-                content.style.height = `${educationcontentheights[index - 1]}px`
-                container.classList.add('active')
-            } else {
-                content.style.padding = '0px'
-                content.style.height = '0px'
-                container.classList.remove('active')
-            }
-        } else {
-            console.log('no container found');
-        }
-
-    }
-    const closesidebar = () => {
-        const toggle_button = document.querySelector('.toggle')
-        const sidebarcomponent = document.querySelector('.sidebarcomponent')
-        if (toggle_button.classList.contains('active')) {
-            toggle_button.classList.remove('active')
-            sidebarcomponent.classList.remove('active')
-        }
-    }
-    const isInViewport = (element) => {
-        const rect = element.getBoundingClientRect();
-        const viewportHeight = window.innerHeight;
-
-        if (rect.height <= viewportHeight) {
-            const visibleHeight = Math.min(rect.bottom, viewportHeight) - Math.max(rect.top, 0);
-            return visibleHeight >= rect.height / 2;
-        } else {
-            const visibleHeight = Math.min(rect.bottom, viewportHeight) - Math.max(rect.top, 0);
-            return visibleHeight >= rect.height / 2;
-        }
-    };
-    const handleScrollAnimations0 = () => {
-        const elements = document.querySelectorAll('.second-animation-element');
-        let delay = 0;
-
-        elements.forEach((element, index) => {
-            if (isInViewport(element) && !animatedElements.has(element)) {
-                console.log(`Animating element ${index + 1} with delay ${delay}ms`);
-                animatedElements.add(element);
-                setTimeout(() => {
-                    element.classList.add('visible');
-                }, delay);
-                delay += 200;
-            }
-        });
-    }
-    const handlescroll = () => {
-        const toggle_button = document.querySelector('.toggle')
-        const sidebarcomponent = document.querySelector('.sidebarcomponent')
-        if (toggle_button.classList.contains('active')) {
-            toggle_button.classList.remove('active')
-            sidebarcomponent.classList.remove('active')
-        }
-        const first_animation_element = document.querySelectorAll('.first-animation-element')
-        const observer0 = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.marginLeft = '0px'
-                    entry.target.style.width = '100%'
-                    entry.target.style.opacity = 1
-                }
-            });
-        }, { threshold: 0.2 });
-        first_animation_element.forEach((item) => {
-            observer0.observe(item)
-        })
-        if (!timeout) {
-            timeout = setTimeout(() => {
-                handleScrollAnimations0();
-                timeout = null;
-            }, 100);
-        }
-    }
-    const titles = gsap.utils.toArray('.skill-role')
-    const rotateskills = () => {
-        const skills = document.querySelector('.skills')
-        setTimeout(() => {
-            skills.style.opacity = 1
-        }, 100);
-        const tl = gsap.timeline({
-            onComplete: rotateskills
-        })
-        titles.forEach(title => {
-            const splitTitle = new SplitTextJS(title)
-            tl
-                .from(splitTitle.chars, {
-                    opacity: 0,
-                    y: 20,
-                    rotateX: 90,
-                    stagger: .02
-                }, '<')
-                .to(splitTitle.chars, {
-                    opacity: 0,
-                    y: -20,
-                    rotateX: -90,
-                    stagger: .02
-                }, '<1')
-        })
-    }
-    // useEffect(() => {
-    //     rotateskills()
-    // }, [])
-    // useEffect(() => {
-    //     getheight()
-    // }, [])
-
     return (
-        <div onScroll={handlescroll} onClick={closesidebar} className='all-container'>
+        <div className='all-container'>
             <div className="landing-section">
                 <div className="description landing-page-h1">
                     <h1>Hi!</h1>
@@ -296,7 +148,7 @@ export default function Main() {
                 <h2 style={{ marginTop: 20 }}>Education</h2>
                 <div style={{ marginTop: 20 }} className="cards">
                     <div id='ecard1' className="card ecard">
-                        <div onClick={openeducationcard} id='1' className="card-header ">
+                        <div id='1' className="card-header ">
                             <p>Master Degree Graphic Design</p>
                             <div className="icon">
                                 <i className="fa-light fa-plus"></i>
@@ -309,7 +161,7 @@ export default function Main() {
                         </div>
                     </div>
                     <div id='ecard2' className="card ecard">
-                        <div onClick={openeducationcard} id='2' className="card-header">
+                        <div id='2' className="card-header">
                             <p>Bachelor Degree of Computer Science</p>
                             <div className="icon">
                                 <i className="fa-light fa-plus"></i>
@@ -325,7 +177,7 @@ export default function Main() {
                         </div>
                     </div>
                     <div id='ecard3' className="card ecard">
-                        <div onClick={openeducationcard} id='3' className="card-header ">
+                        <div id='3' className="card-header ">
                             <p>Diploma in Information Technology</p>
                             <div className="icon">
                                 <i className="fa-light fa-plus"></i>
@@ -337,7 +189,7 @@ export default function Main() {
                         </div>
                     </div>
                     <div id='ecard4' className="card ecard">
-                        <div onClick={openeducationcard} id='4' className="card-header">
+                        <div id='4' className="card-header">
                             <p>High School Secondary Education</p>
                             <div className="icon">
                                 <i className="fa-light fa-plus"></i>
