@@ -14,11 +14,13 @@ const geistMono = localFont({
 
 
 export default function RootLayout({ children }) {
-  
+
   return (
     <html lang="en">
       <head>
-        <meta name="google-adsense-account" content="ca-pub-4969686146359420"/>
+        <meta name="google-adsense-account" content="ca-pub-4969686146359420" />
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4969686146359420"
+          crossorigin="anonymous"></script>
         <link
           rel="stylesheet"
           data-purpose="Layout StyleSheet"
@@ -51,7 +53,7 @@ export default function RootLayout({ children }) {
           href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-light.css"
         />
       </head>
-      <body style={{overflow:'hidden'}} className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body style={{ overflow: 'hidden' }} className={`${geistSans.variable} ${geistMono.variable}`}>
         {children}
       </body>
     </html>
