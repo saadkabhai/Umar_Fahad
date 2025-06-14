@@ -229,10 +229,6 @@
     margin-left: 5%;
 }
 
-.all-container .education-section {
-    opacity: 0;
-}
-
 .all-container .education-section .cards {
     display: flex;
     flex-direction: column;

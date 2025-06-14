@@ -10,8 +10,8 @@ export default function Main() {
             <div className="landing-section">
                 <div className="description landing-page-h1">
                     <h1>Hi!</h1>
-                    <h1>I am Umar</h1>
-                    <h1>Fahad</h1>
+                    <h1>I am Saad</h1>
+                    <h1>Majid</h1>
                     <div style={{ opacity: 0 }} className="skills">
                         <p className='skill-role'>Graphic Design</p>
                         <p className='skill-role'>Web Design</p>
@@ -21,54 +21,53 @@ export default function Main() {
                 </div>
                 <div className="image"></div>
             </div>
-            <div style={{ marginBottom: 100 }} className="aboutus-section">
-                <p style={{ marginLeft: '-30px', opacity: 0, transition: 'opacity 0.5s ease-in-out, margin 0.5s ease-in-out' }} className='firstp first-animation-element'>About us</p>
-                <h2 style={{ marginLeft: '-30px', opacity: 0, transition: 'opacity 0.5s ease-in-out, margin 0.5s ease-in-out' }} className='first-animation-element'>Who am i?</h2>
-                <div style={{ marginTop: 20, marginLeft: '-30px', opacity: 0, transition: 'opacity 0.5s ease-in-out, margin 0.5s ease-in-out' }} className="pararaph first-animation-element">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Id consectetur esse quam at mollitia facere dolore qui nam officiis, incidunt laborum illo optio minima sequi? Eum eligendi velit ex distinctio?
+            <section className="aboutus-section" style={{ marginBottom: 100 }}>
+                <p className="firstp first-animation-element">About Me</p>
+                <h2 className="first-animation-element">Who Am I?</h2>
+
+                <div className="pararaph first-animation-element">
+                    I'm a passionate full-stack web developer with a strong focus on UI/UX design, scalable software, and mobile applications. I help clients bring their digital ideas to life with clean, user-centered solutions.
                 </div>
-                <div style={{ marginLeft: '-30px', opacity: 0, transition: 'opacity 0.5s ease-in-out, margin 0.5s ease-in-out' }} className="pararaph first-animation-element">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Id consectetur esse quam at mollitia facere dolore qui nam officiis, incidunt laborum illo optio minima sequi? Eum eligendi velit ex distinctio?
+
+                <div className="pararaph first-animation-element">
+                    I specialize in building responsive websites, robust backend systems, and engaging interfaces that deliver real results. Whether you're a startup or a growing business, I bring technical expertise and creative insight to every project.
                 </div>
+
                 <div className="cards">
-                    <div style={{ marginLeft: '-30px', opacity: 0, transition: 'opacity 0.5s ease-in-out, margin 0.5s ease-in-out' }} id='21' className="card second-animation-element">
+                    <div id="21" className="card second-animation-element">
                         <div className="icon">
                             <i style={{ color: '#369df1' }} className="fa-light fa-lightbulb fa-xl"></i>
                         </div>
-                        <div className="skill-name">
-                            Graphic Design
-                        </div>
+                        <div className="skill-name">Graphic Design</div>
                         <div className="line"></div>
                     </div>
-                    <div style={{ marginLeft: '30px', opacity: 0, transition: 'opacity 0.5s ease-in-out, margin 0.5s ease-in-out' }} id='22' className="card second-animation-element">
+
+                    <div id="22" className="card second-animation-element">
                         <div className="icon">
                             <i style={{ color: '#ec5453' }} className="fa-sharp fa-light fa-globe-stand fa-xl"></i>
                         </div>
-                        <div className="skill-name">
-                            Web Design
-                        </div>
+                        <div className="skill-name">Web Development</div>
                         <div style={{ backgroundColor: '#e76e6d' }} className="line"></div>
                     </div>
-                    <div style={{ marginTop: '-30px', opacity: 0, transition: 'opacity 0.5s ease-in-out, margin 0.5s ease-in-out' }} id='23' className="card second-animation-element">
+
+                    <div id="23" className="card second-animation-element">
                         <div className="icon">
                             <i style={{ color: '#fac756' }} className="fa-light fa-database fa-xl"></i>
                         </div>
-                        <div className="skill-name">
-                            Software
-                        </div>
+                        <div className="skill-name">Software Engineering</div>
                         <div style={{ backgroundColor: '#c9a24b' }} className="line"></div>
                     </div>
-                    <div style={{ marginTop: '-30px', opacity: 0, transition: 'opacity 0.5s ease-in-out, margin 0.5s ease-in-out' }} id='24' className="card second-animation-element">
+
+                    <div id="24" className="card second-animation-element">
                         <div className="icon">
                             <i style={{ color: '#a84cb8' }} className="fa-light fa-mobile fa-xl"></i>
                         </div>
-                        <div className="skill-name">
-                            Application
-                        </div>
+                        <div className="skill-name">Mobile Apps</div>
                         <div style={{ background: '#cc7ada' }} className="line"></div>
                     </div>
                 </div>
-            </div>
+            </section>
+
             <div style={{ marginBottom: 100 }} className="services-section">
                 <p className='firstp'>What I do?</p>
                 <h2 style={{ marginTop: 20 }}>Here are some of my</h2>
@@ -76,140 +75,59 @@ export default function Main() {
                 <div className="cards" style={{ paddingTop: 40 }}>
                     <div className="card">
                         <div className="hexagon">
-                            <i style={{ fontSize: 30 }} className="fa-light fa-lightbulb fa-2xl"></i>
+                            <i className="fa-light fa-lightbulb icon-style"></i>
                         </div>
-                        <div className="heading">
-                            Innovative Ideas
-                        </div>
-                        <div className="content">
-                            Separated they live in Bookmarksgrove right at the coast of the Semantics
-                        </div>
+                        <div className="heading">Creative Solutions</div>
+                        <div className="content">We provide unique ideas tailored to your brand and audience.</div>
                     </div>
                     <div className="card">
                         <div className="hexagon hexagone2">
-                            <i style={{ fontSize: 30 }} className="fa-light fa-database fa-xl"></i>
+                            <i className="fa-light fa-database icon-style"></i>
                         </div>
-                        <div className="heading">
-                            Innovative Ideas
-                        </div>
-                        <div className="content">
-                            Separated they live in Bookmarksgrove right at the coast of the Semantics
-                        </div>
+                        <div className="heading">Data Management</div>
+                        <div className="content">Secure, scalable, and optimized backend services for your apps.</div>
                     </div>
                     <div className="card">
                         <div className="hexagon hexagone3">
-                            <i style={{ fontSize: 30 }} className="fa-light fa-mobile fa-xl"></i>
+                            <i className="fa-light fa-mobile icon-style"></i>
                         </div>
-                        <div className="heading">
-                            Innovative Ideas
-                        </div>
-                        <div className="content">
-                            Separated they live in Bookmarksgrove right at the coast of the Semantics
-                        </div>
+                        <div className="heading">Mobile Development</div>
+                        <div className="content">Build fast, responsive, and user-friendly mobile apps for Android & iOS.</div>
                     </div>
                     <div className="card">
                         <div className="hexagon hexagone4">
-                            <i style={{ fontSize: 30 }} className="fa-light fa-layer-group"></i>
+                            <i className="fa-light fa-layer-group icon-style"></i>
                         </div>
-                        <div className="heading">
-                            Innovative Ideas
-                        </div>
-                        <div className="content">
-                            Separated they live in Bookmarksgrove right at the coast of the Semantics
-                        </div>
+                        <div className="heading">UX/UI Design</div>
+                        <div className="content">Designs that offer seamless user experience and clean interfaces.</div>
                     </div>
                     <div className="card">
                         <div className="hexagon hexagone5">
-                            <i style={{ fontSize: 30 }} className="fa-light fa-database fa-xl"></i>
+                            <i className="fa-light fa-database icon-style"></i>
                         </div>
-                        <div className="heading">
-                            Innovative Ideas
-                        </div>
-                        <div className="content">
-                            Separated they live in Bookmarksgrove right at the coast of the Semantics
-                        </div>
+                        <div className="heading">Cloud Integration</div>
+                        <div className="content">We help migrate and manage your data securely in the cloud.</div>
                     </div>
                     <div className="card">
                         <div className="hexagon hexagone6">
-                            <i style={{ fontSize: 30 }} className="fa-light fa-mobile fa-xl"></i>
+                            <i className="fa-light fa-mobile icon-style"></i>
                         </div>
-                        <div className="heading">
-                            Innovative Ideas
-                        </div>
-                        <div className="content">
-                            Separated they live in Bookmarksgrove right at the coast of the Semantics
-                        </div>
+                        <div className="heading">App Optimization</div>
+                        <div className="content">Improve app performance and reduce loading time for a smoother experience.</div>
                     </div>
                 </div>
 
-            </div>
-            <div style={{ marginBottom: 100 }} className="education-section">
-                <p className='firstp'>Education</p>
-                <h2 style={{ marginTop: 20 }}>Education</h2>
-                <div style={{ marginTop: 20 }} className="cards">
-                    <div id='ecard1' className="card ecard">
-                        <div id='1' className="card-header ">
-                            <p>Master Degree Graphic Design</p>
-                            <div className="icon">
-                                <i className="fa-light fa-plus"></i>
-                                <i className="fa-light fa-minus"></i>
-                            </div>
-                        </div>
-                        <div style={{ display: 'flex', height: 'auto' }} className="content">
-                            <p style={{ width: '50%' }}>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                            <p style={{ width: '50%' }}>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-                        </div>
-                    </div>
-                    <div id='ecard2' className="card ecard">
-                        <div id='2' className="card-header">
-                            <p>Bachelor Degree of Computer Science</p>
-                            <div className="icon">
-                                <i className="fa-light fa-plus"></i>
-                                <i className="fa-light fa-minus"></i>
-                            </div>
-                        </div>
-                        <div style={{ height: 'auto' }} className="content">
-                            <p >Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-                            <ul>
-                                <li>Separated they live in Bookmarksgrove right</li>
-                                <li>Separated they live in Bookmarksgrove right</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div id='ecard3' className="card ecard">
-                        <div id='3' className="card-header ">
-                            <p>Diploma in Information Technology</p>
-                            <div className="icon">
-                                <i className="fa-light fa-plus"></i>
-                                <i className="fa-light fa-minus"></i>
-                            </div>
-                        </div>
-                        <div style={{ height: 'auto' }} className="content">
-                            <p >Far far away, behind the word <strong>mountains</strong> , far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-                        </div>
-                    </div>
-                    <div id='ecard4' className="card ecard">
-                        <div id='4' className="card-header">
-                            <p>High School Secondary Education</p>
-                            <div className="icon">
-                                <i className="fa-light fa-plus"></i>
-                                <i className="fa-light fa-minus"></i>
-                            </div>
-                        </div>
-                        <div style={{ height: 'auto' }} className="content">
-                            <p>Far far away, behind the word <strong>mountains</strong> , far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-                        </div>
-                    </div>
-                </div>
+
             </div>
             <div style={{ marginBottom: 100 }} className="experience-section">
-                <p className='firstp' >Experience</p>
+                <p className='firstp'>Experience</p>
                 <h2 style={{ marginTop: 20 }}>Work Experience</h2>
                 <div className="works">
+
                     <div className="work">
                         <div className="line">
                             <div className="circle">
-                                <div style={{ backgroundColor: '#2c98f0' }} className="inner-circle">
+                                <div className="inner-circle" style={{ backgroundColor: '#2c98f0' }}>
                                     <i className="fa-light fa-pencil"></i>
                                 </div>
                                 <div className="triangle"></div>
@@ -217,17 +135,19 @@ export default function Main() {
                         </div>
                         <div className="work-description">
                             <div className="header">
-                                <h2>Full Stack Developer <p>&nbsp;2017 - 2018</p></h2>
+                                <h2>Full Stack Developer</h2>
+                                <span>2017 - 2018</span>
                             </div>
                             <div className="content">
-                                <p>Tolerably earnestly middleton extremely distrusts she boy now not. Add and offered prepare how cordial two promise. Greatly who affixed suppose but enquire compact prepare all put. Added forth chief trees but rooms think may.</p>
+                                <p>Developed and maintained full-stack applications using Node.js, React, and MongoDB. Collaborated with designers and backend engineers to deliver high-quality features on time.</p>
                             </div>
                         </div>
                     </div>
+
                     <div className="work">
                         <div className="line">
                             <div className="circle">
-                                <div style={{ backgroundColor: '#ec5453' }} className="inner-circle">
+                                <div className="inner-circle" style={{ backgroundColor: '#ec5453' }}>
                                     <i className="fa-light fa-pencil"></i>
                                 </div>
                                 <div className="triangle"></div>
@@ -235,17 +155,19 @@ export default function Main() {
                         </div>
                         <div className="work-description">
                             <div className="header">
-                                <h2>Front End Developer at Google Company <p>&nbsp;2017 - 2018</p></h2>
+                                <h2>Frontend Developer at SoftTech Co.</h2>
+                                <span>2018 - 2019</span>
                             </div>
                             <div className="content">
-                                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
+                                <p>Worked on responsive UI components using React, SASS, and Tailwind CSS. Focused on performance optimization and accessibility across major devices.</p>
                             </div>
                         </div>
                     </div>
+
                     <div className="work">
                         <div className="line">
                             <div className="circle">
-                                <div style={{ backgroundColor: '#f9bf3f' }} className="inner-circle">
+                                <div className="inner-circle" style={{ backgroundColor: '#f9bf3f' }}>
                                     <i className="fa-light fa-pencil"></i>
                                 </div>
                                 <div className="triangle"></div>
@@ -253,18 +175,19 @@ export default function Main() {
                         </div>
                         <div className="work-description">
                             <div className="header">
-                                <h2>System Analyst<p>&nbsp;2017 - 2018</p></h2>
+                                <h2>System Analyst</h2>
+                                <span>2019 - 2020</span>
                             </div>
                             <div className="content">
-                                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.
-                                </p>
+                                <p>Analyzed and optimized internal systems to improve performance and data flow. Created detailed reports and presented recommendations to stakeholders.</p>
                             </div>
                         </div>
                     </div>
+
                     <div className="work">
                         <div className="line">
                             <div className="circle">
-                                <div style={{ backgroundColor: '#a84cb8' }} className="inner-circle">
+                                <div className="inner-circle" style={{ backgroundColor: '#a84cb8' }}>
                                     <i className="fa-light fa-pencil"></i>
                                 </div>
                                 <div className="triangle"></div>
@@ -272,18 +195,19 @@ export default function Main() {
                         </div>
                         <div className="work-description">
                             <div className="header">
-                                <h2>Creative Designer<p>&nbsp;2017 - 2018</p></h2>
+                                <h2>Creative Designer</h2>
+                                <span>2020 - 2021</span>
                             </div>
                             <div className="content">
-                                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.
-                                </p>
+                                <p>Designed engaging UI/UX for mobile apps and websites. Ensured brand consistency and usability across all platforms.</p>
                             </div>
                         </div>
                     </div>
+
                     <div className="work">
                         <div className="line">
                             <div className="circle">
-                                <div style={{ backgroundColor: '#2fa499' }} className="inner-circle">
+                                <div className="inner-circle" style={{ backgroundColor: '#2fa499' }}>
                                     <i className="fa-light fa-pencil"></i>
                                 </div>
                                 <div className="triangle"></div>
@@ -291,14 +215,15 @@ export default function Main() {
                         </div>
                         <div className="work-description">
                             <div className="header">
-                                <h2>UI/UX Designer at Envato<p>&nbsp;2017 - 2018</p></h2>
+                                <h2>UI/UX Designer at Envato</h2>
+                                <span>2021 - 2022</span>
                             </div>
                             <div className="content">
-                                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.
-                                </p>
+                                <p>Led the design of multiple marketplace templates and product pages for global users. Conducted user testing to improve engagement and conversions.</p>
                             </div>
                         </div>
                     </div>
+
                     <div className="ending-point">
                         <div className="line">
                             <div className="circle">
@@ -306,32 +231,40 @@ export default function Main() {
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
+
             <div className="contact-section">
-                <p className='firstp'>Get in touch</p>
+                <p className="firstp">Get in Touch</p>
                 <h2 style={{ marginTop: 20 }}>Contact</h2>
+
                 <div style={{ marginTop: 20 }} className="cards">
+
                     <div className="card-container">
                         <div className="card">
                             <i className="fa-sharp fa-light fa-globe-stand fa-2xl"></i>
                         </div>
-                        <div className="text">example@gmail.com</div>
+                        <div className="text">Laptop1520@gmail.com</div> {/* Replace with your real email */}
                     </div>
+
                     <div className="card-container">
                         <div className="card">
                             <i className="fa-light fa-map fa-2xl"></i>
                         </div>
-                        <div className="text">98 West 21th Street, Suite <br /> 721 New York NY 10016</div>
+                        <div className="text">Remote – Based in Pakistan</div> {/* Or use your actual office address */}
                     </div>
+
                     <div className="card-container">
                         <div className="card">
                             <i className="fa-light fa-phone fa-flip-horizontal fa-2xl"></i>
                         </div>
-                        <div className="text">+123 456 789</div>
+                        <div className="text">+92 300 1234567</div> {/* Replace with real phone number or support line */}
                     </div>
+
                 </div>
             </div>
+
         </div>
     )
 }
