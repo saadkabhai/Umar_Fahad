@@ -19,6 +19,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         <meta name="google-adsense-account" content="ca-pub-4969686146359420" />
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4969686146359420"crossorigin="anonymous"></script>
         <link
           rel="stylesheet"
           data-purpose="Layout StyleSheet"
