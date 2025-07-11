@@ -10,8 +10,8 @@ export default function Main() {
             <div className="landing-section">
                 <div className="description landing-page-h1">
                     <h1>Hi!</h1>
-                    <h1>I am Saad</h1>
-                    <h1>Majid</h1>
+                    <h1>I am Umar</h1>
+                    <h1>Fahad</h1>
                     <div style={{ opacity: 0 }} className="skills">
                         <p className='skill-role'>Graphic Design</p>
                         <p className='skill-role'>Web Design</p>
